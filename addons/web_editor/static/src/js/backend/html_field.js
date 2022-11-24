@@ -275,7 +275,7 @@ export class HtmlField extends Component {
     async updateValue() {
         const value = this.getEditingValue();
         const lastValue = (this.props.value || "").toString();
-        if (value !== null && !(!lastValue && value === "<p><br></p>") && value !== lastValue) {
+        if (value !== null && !(!lastValue && value.replace(/\sdata-last-history-steps="[^"]*?"/, '') === "<p><br></p>") && value !== lastValue) {
             if (this.props.setDirty) {
                 this.props.setDirty(true);
             }
